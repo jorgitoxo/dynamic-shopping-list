@@ -32,11 +32,43 @@
 
     <script>
       // My code goes here
-      const ul = document.querySelector("ul");
-      const input = document.querySelector("input");
-      const button = document.querySelector("button");
+      // step 2
+      let list = document.querySelector("ul");
+      let input = document.querySelector("input");
+      let addButton = document.querySelector("button");
 
-      
+      // step 3
+      function addToList() {
+        // step 4 & 5
+        let item = input.value;
+        input.value = '';
+
+        // step 6
+        let li = document.createElement("li");
+        let span = document.createElement("span");
+        let deleteButton = document.createElement("button");
+
+        // step 7
+        li.appendChild(span);
+        li.appendChild(deleteButton);
+
+        // step 8
+        span.textContent = item;
+        deleteButton.textContent = "Delete"
+
+        // step 9
+        list.appendChild(li);
+        // li.textContent = item;
+
+        // step 10
+        // * Check how to delete a span on click
+        // Explore arrow function below
+        // deleteButton.addEventListener("click", deleteLi() => );
+      }
+      addButton.addEventListener("click", addToList);
+
+      // step 11
+      input.focus();
     </script>
   </body>
 </html>
