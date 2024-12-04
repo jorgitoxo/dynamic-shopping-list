@@ -29,46 +29,46 @@
     <ul>
 
     </ul>
-
+    
     <script>
       // My code goes here
       // step 2
       let list = document.querySelector("ul");
       let input = document.querySelector("input");
       let addButton = document.querySelector("button");
-
+      
       // step 3
       function addToList() {
         // step 4 & 5
-        let item = input.value;
+        let item = input.value ? input.value : "empty" ;
         input.value = '';
-
+        // step 11
+        input.focus();
+        
         // step 6
         let li = document.createElement("li");
+        li.setAttribute('id', item);
         let span = document.createElement("span");
         let deleteButton = document.createElement("button");
 
         // step 7
         li.appendChild(span);
         li.appendChild(deleteButton);
-
-        // step 8
-        span.textContent = item;
-        deleteButton.textContent = "Delete"
-
         // step 9
         list.appendChild(li);
-        // li.textContent = item;
+
+        // step 8
+        span.textContent = item !== "empty" ? item : "";
+        deleteButton.textContent = "Delete";
 
         // step 10
-        // * Check how to delete a span on click
-        // Explore arrow function below
-        // deleteButton.addEventListener("click", deleteLi() => );
+        deleteButton.addEventListener('click', () => {
+            const node = document.getElementById(item);
+            node.remove();
+          } 
+        );
       }
-      addButton.addEventListener("click", addToList);
-
-      // step 11
-      input.focus();
+      addButton.addEventListener('click', addToList);
     </script>
   </body>
 </html>
